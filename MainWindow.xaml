@@ -1,0 +1,426 @@
+<Window x:Class="RaulWin11IsoCustomizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RAULWIN11 ISO CUSTOMIZER" Height="700" Width="1000"
+        MinHeight="600" MinWidth="800"
+        Background="#1E1E1E" WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize">
+    
+    <Window.Resources>
+        <!-- Modern Button Style -->
+        <Style x:Key="ModernButton" TargetType="Button">
+            <Setter Property="Background" Value="#0078D4"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="4" 
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#005A9E"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#404040"/>
+                    <Setter Property="Foreground" Value="#808080"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Section Panel Style -->
+        <Style x:Key="SectionPanel" TargetType="Border">
+            <Setter Property="Background" Value="#2D2D30"/>
+            <Setter Property="BorderBrush" Value="#3E3E42"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Margin" Value="0,10"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="RAULWIN11 ISO CUSTOMIZER" 
+                       FontSize="32" 
+                       FontWeight="Bold" 
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="Create Custom Windows 11 Installation Media" 
+                       FontSize="14" 
+                       Foreground="#B0B0B0"
+                       HorizontalAlignment="Center"
+                       Margin="0,5,0,0"/>
+        </StackPanel>
+
+        <!-- Main Content -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                
+                <!-- Step 1: Select Windows ISO -->
+                <Border Style="{StaticResource SectionPanel}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                            <TextBlock Text="📀 STEP 1: Select Windows 11 ISO" 
+                                       FontSize="18" 
+                                       FontWeight="Bold" 
+                                       Foreground="White"/>
+                            <TextBlock Text="Choose your Windows 11 installation ISO file" 
+                                       FontSize="12" 
+                                       Foreground="#B0B0B0"
+                                       Margin="0,5,0,15"/>
+                        </StackPanel>
+
+                        <TextBox x:Name="txtIsoPath" 
+                                 Grid.Row="1" Grid.Column="0"
+                                 Height="40"
+                                 Background="#252526"
+                                 Foreground="White"
+                                 BorderBrush="#3E3E42"
+                                 BorderThickness="1"
+                                 Padding="10"
+                                 FontSize="13"
+                                 VerticalContentAlignment="Center"
+                                 IsReadOnly="True"
+                                 Text="No ISO selected..."/>
+                        
+                        <Button x:Name="btnSelectIso" 
+                                Grid.Row="1" Grid.Column="1"
+                                Content="Browse ISO" 
+                                Style="{StaticResource ModernButton}"
+                                Margin="10,0,0,0"
+                                Click="BtnSelectIso_Click"/>
+                    </Grid>
+                </Border>
+
+                <!-- Step 2: Select Working Directory -->
+                <Border Style="{StaticResource SectionPanel}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                            <TextBlock Text="📁 STEP 2: Select Working Directory" 
+                                       FontSize="18" 
+                                       FontWeight="Bold" 
+                                       Foreground="White"/>
+                            <TextBlock Text="Choose where to extract and work with ISO contents (needs ~10GB free space)" 
+                                       FontSize="12" 
+                                       Foreground="#B0B0B0"
+                                       Margin="0,5,0,15"/>
+                        </StackPanel>
+
+                        <TextBox x:Name="txtWorkDir" 
+                                 Grid.Row="1" Grid.Column="0"
+                                 Height="40"
+                                 Background="#252526"
+                                 Foreground="White"
+                                 BorderBrush="#3E3E42"
+                                 BorderThickness="1"
+                                 Padding="10"
+                                 FontSize="13"
+                                 VerticalContentAlignment="Center"
+                                 IsReadOnly="True"
+                                 Text="No directory selected..."/>
+                        
+                        <Button x:Name="btnSelectWorkDir" 
+                                Grid.Row="1" Grid.Column="1"
+                                Content="Browse Folder" 
+                                Style="{StaticResource ModernButton}"
+                                Margin="10,0,0,0"
+                                Click="BtnSelectWorkDir_Click"/>
+                    </Grid>
+                </Border>
+
+                <!-- Step 3: Extract ISO -->
+                <Border Style="{StaticResource SectionPanel}">
+                    <StackPanel>
+                        <TextBlock Text="📦 STEP 3: Extract ISO Contents" 
+                                   FontSize="18" 
+                                   FontWeight="Bold" 
+                                   Foreground="White"/>
+                        <TextBlock Text="Extract the Windows 11 ISO to the working directory" 
+                                   FontSize="12" 
+                                   Foreground="#B0B0B0"
+                                   Margin="0,5,0,15"/>
+                        
+                        <Button x:Name="btnExtractIso" 
+                                Content="Extract ISO" 
+                                Style="{StaticResource ModernButton}"
+                                HorizontalAlignment="Left"
+                                Click="BtnExtractIso_Click"
+                                IsEnabled="False"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Step 4: Add Autounattend.xml -->
+                <Border Style="{StaticResource SectionPanel}">
+                    <StackPanel>
+                        <TextBlock Text="⚙️ STEP 4: Add Autounattend.xml File" 
+                                   FontSize="18" 
+                                   FontWeight="Bold" 
+                                   Foreground="White"/>
+                        <TextBlock Text="Choose to download the RaulWin11 autounattend.xml or use your own custom file" 
+                                   FontSize="12" 
+                                   Foreground="#B0B0B0"
+                                   Margin="0,5,0,15"/>
+                        
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <Button x:Name="btnDownloadAutounattend" 
+                                    Content="Download RaulWin11 Autounattend.xml" 
+                                    Style="{StaticResource ModernButton}"
+                                    Click="BtnDownloadAutounattend_Click"
+                                    IsEnabled="False"/>
+                            
+                            <TextBlock Text="OR" 
+                                       Foreground="#B0B0B0"
+                                       FontSize="14"
+                                       FontWeight="Bold"
+                                       VerticalAlignment="Center"
+                                       Margin="20,0"/>
+                            
+                            <Button x:Name="btnSelectCustomAutounattend" 
+                                    Content="Use My Custom Autounattend.xml" 
+                                    Style="{StaticResource ModernButton}"
+                                    Background="#2D7230"
+                                    Click="BtnSelectCustomAutounattend_Click"
+                                    IsEnabled="False"/>
+                        </StackPanel>
+
+                        <TextBlock x:Name="txtAutounattendStatus" 
+                                   Text="No autounattend.xml added yet" 
+                                   FontSize="12" 
+                                   Foreground="#FFA500"
+                                   Margin="0,5"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Step 5: Advanced Options (NEW) -->
+                <Border Style="{StaticResource SectionPanel}">
+                    <StackPanel>
+                        <TextBlock Text="🔧 STEP 5: Advanced Options (Optional)" 
+                                   FontSize="18" 
+                                   FontWeight="Bold" 
+                                   Foreground="White"/>
+                        <TextBlock Text="Configure additional system tweaks and update policies" 
+                                   FontSize="12" 
+                                   Foreground="#B0B0B0"
+                                   Margin="0,5,0,15"/>
+                        
+                        <!-- Bloatware Prevention -->
+                        <CheckBox x:Name="chkPreventBloatware"
+                                  Content="Prevent bloatware reinstall via Windows Update"
+                                  Foreground="White"
+                                  FontSize="13"
+                                  Margin="0,0,0,8"
+                                  IsChecked="True">
+                            <CheckBox.ToolTip>
+                                <ToolTip>
+                                    <TextBlock MaxWidth="400" TextWrapping="Wrap">
+                                        Adds registry tweaks and policies to prevent apps like Teams, OneDrive, Clipchamp from reinstalling automatically through Windows Updates.
+                                    </TextBlock>
+                                </ToolTip>
+                            </CheckBox.ToolTip>
+                        </CheckBox>
+
+                        <!-- Security Updates Only -->
+                        <CheckBox x:Name="chkSecurityUpdatesOnly"
+                                  Content="Security updates only (no feature updates)"
+                                  Foreground="White"
+                                  FontSize="13"
+                                  Margin="0,0,0,8"
+                                  IsChecked="True">
+                            <CheckBox.ToolTip>
+                                <ToolTip>
+                                    <TextBlock MaxWidth="400" TextWrapping="Wrap">
+                                        Configures Windows Update to download only security updates and critical patches. Feature updates (new Windows versions) will not be installed automatically.
+                                    </TextBlock>
+                                </ToolTip>
+                            </CheckBox.ToolTip>
+                        </CheckBox>
+
+                        <!-- Disable Telemetry -->
+                        <CheckBox x:Name="chkDisableTelemetry"
+                                  Content="Disable Windows telemetry and data collection"
+                                  Foreground="White"
+                                  FontSize="13"
+                                  Margin="0,0,0,8"
+                                  IsChecked="True">
+                            <CheckBox.ToolTip>
+                                <ToolTip>
+                                    <TextBlock MaxWidth="400" TextWrapping="Wrap">
+                                        Disables Windows diagnostic data collection, telemetry services, and automatic feedback submissions for enhanced privacy.
+                                    </TextBlock>
+                                </ToolTip>
+                            </CheckBox.ToolTip>
+                        </CheckBox>
+
+                        <!-- Disable Cortana -->
+                        <CheckBox x:Name="chkDisableCortana"
+                                  Content="Disable Cortana and web search in Start Menu"
+                                  Foreground="White"
+                                  FontSize="13"
+                                  Margin="0,0,0,8"
+                                  IsChecked="True">
+                            <CheckBox.ToolTip>
+                                <ToolTip>
+                                    <TextBlock MaxWidth="400" TextWrapping="Wrap">
+                                        Completely disables Cortana assistant and removes web search results from the Start Menu search.
+                                    </TextBlock>
+                                </ToolTip>
+                            </CheckBox.ToolTip>
+                        </CheckBox>
+
+                        <!-- Performance Mode -->
+                        <CheckBox x:Name="chkPerformanceMode"
+                                  Content="Enable performance optimizations"
+                                  Foreground="White"
+                                  FontSize="13"
+                                  Margin="0,0,0,8"
+                                  IsChecked="True">
+                            <CheckBox.ToolTip>
+                                <ToolTip>
+                                    <TextBlock MaxWidth="400" TextWrapping="Wrap">
+                                        Applies performance tweaks: disables unnecessary services, visual effects, and background processes for better system responsiveness.
+                                    </TextBlock>
+                                </ToolTip>
+                            </CheckBox.ToolTip>
+                        </CheckBox>
+
+                        <!-- Skip OOBE Screens (NEW) -->
+                        <CheckBox x:Name="chkSkipOOBE"
+                                  Content="Skip unnecessary setup screens (keep WiFi and account creation)"
+                                  Foreground="White"
+                                  FontSize="13"
+                                  Margin="0,0,0,15"
+                                  IsChecked="True">
+                            <CheckBox.ToolTip>
+                                <ToolTip>
+                                    <TextBlock MaxWidth="400" TextWrapping="Wrap">
+                                        Skips promotional slides, Cortana, OneDrive setup, and other unnecessary OOBE screens. You'll still be able to create a local account and configure WiFi, but the installation will be much faster.
+                                    </TextBlock>
+                                </ToolTip>
+                            </CheckBox.ToolTip>
+                        </CheckBox>
+
+                        <TextBlock Text="ℹ️ These options will be applied during Windows installation" 
+                                   FontSize="11" 
+                                   Foreground="#808080"
+                                   FontStyle="Italic"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Step 6: Create Custom ISO -->
+                <Border Style="{StaticResource SectionPanel}">
+                    <StackPanel>
+                        <TextBlock Text="💿 STEP 6: Create Bootable ISO" 
+                                   FontSize="18" 
+                                   FontWeight="Bold" 
+                                   Foreground="White"/>
+                        <TextBlock Text="Package the customized contents into a bootable Windows 11 ISO" 
+                                   FontSize="12" 
+                                   Foreground="#B0B0B0"
+                                   Margin="0,5,0,15"/>
+                        
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBox x:Name="txtOutputIso" 
+                                     Grid.Column="0"
+                                     Height="40"
+                                     Background="#252526"
+                                     Foreground="White"
+                                     BorderBrush="#3E3E42"
+                                     BorderThickness="1"
+                                     Padding="10"
+                                     FontSize="13"
+                                     VerticalContentAlignment="Center"
+                                     IsReadOnly="True"
+                                     Text="Output ISO location will appear here..."/>
+                            
+                            <Button x:Name="btnCreateIso" 
+                                    Grid.Column="1"
+                                    Content="Create Custom ISO" 
+                                    Style="{StaticResource ModernButton}"
+                                    Background="#107C10"
+                                    Margin="10,0,0,0"
+                                    Click="BtnCreateIso_Click"
+                                    IsEnabled="False"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Progress Section -->
+        <Border Grid.Row="2" 
+                Background="#252526" 
+                BorderBrush="#3E3E42" 
+                BorderThickness="1"
+                CornerRadius="6"
+                Padding="15"
+                Margin="0,20,0,0">
+            <StackPanel>
+                <TextBlock x:Name="txtStatus" 
+                           Text="Ready. Please select a Windows 11 ISO to begin." 
+                           FontSize="13" 
+                           Foreground="White"
+                           Margin="0,0,0,10"/>
+                
+                <ProgressBar x:Name="progressBar" 
+                             Height="25" 
+                             Minimum="0" 
+                             Maximum="100" 
+                             Value="0"
+                             Background="#1E1E1E"
+                             Foreground="#0078D4"
+                             BorderBrush="#3E3E42"/>
+                
+                <TextBlock x:Name="txtProgressPercent" 
+                           Text="0%" 
+                           FontSize="12" 
+                           Foreground="#B0B0B0"
+                           HorizontalAlignment="Right"
+                           Margin="0,5,0,0"/>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>
