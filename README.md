@@ -85,11 +85,8 @@ Disables all Windows data collection:
 ### Main Interface
 ![Main Window](screenshots/main-window.png)
 
-### Advanced Options
+### What's included in RaulWin11 autounattend
 ![Advanced Options](screenshots/advanced-options.png)
-
-### Build Process
-![Building ISO](screenshots/building-iso.png)
 
 </div>
 
