@@ -117,11 +117,9 @@ Disables all Windows data collection:
    - Choose working directory
    - Extract ISO
    - Add autounattend.xml (download or custom)
-   - Configure advanced options (optional)
    - Create custom ISO
    - **Done!** 🎉
 
-📖 **Full guide:** [QUICK_START.md](QUICK_START.md)
 
 ---
 
@@ -159,37 +157,6 @@ dotnet publish -c Release -r win-x64 --self-contained true \
   -p:PublishReadyToRun=true \
   -o publish
 ```
-
-📖 **Full guide:** [INNO_SETUP_GUIDE.md](INNO_SETUP_GUIDE.md)
-
----
-
-## 📂 Project Structure
-
-```
-RaulWin11IsoCustomizer/
-├── 📄 MainWindow.xaml              # UI design (WPF)
-├── 📄 MainWindow.xaml.cs           # Application logic
-├── 📄 App.xaml                     # Application resources
-├── 📄 App.xaml.cs                  # Entry point
-├── 📄 RaulWin11IsoCustomizer.csproj # .NET 8 project file
-├── 📄 installer.iss                # Inno Setup script
-├── 📜 build-for-inno.bat           # Build automation (Windows)
-├── 📜 build-for-inno.ps1           # Build automation (PowerShell)
-├── 📚 Documentation/
-│   ├── README.md                   # This file
-│   ├── QUICK_START.md             # 5-minute user guide
-│   ├── INNO_SETUP_GUIDE.md        # Developer build guide
-│   ├── ADVANCED_OPTIONS_GUIDE.md  # Feature explanations
-│   ├── SKIP_OOBE_GUIDE.md         # OOBE skip details
-│   ├── REGISTRY_REFERENCE_TUTORIAL.md # Registry paths reference
-│   ├── TECHNICAL_DOCS.md          # Technical documentation
-│   ├── INSTALL_GUIDE.md           # Installation guide
-│   └── ICON_GUIDE.md              # Custom icon guide
-├── 📄 LICENSE                      # MIT License
-└── 📄 .gitignore                  # Git ignore rules
-```
-
 ---
 
 ## 🎯 Use Cases
@@ -222,9 +189,8 @@ RaulWin11IsoCustomizer/
 graph LR
     A[Official Windows 11 ISO] --> B[Extract ISO]
     B --> C[Add autounattend.xml]
-    C --> D[Apply Advanced Tweaks]
-    D --> E[Create Bootable ISO]
-    E --> F[Custom Windows 11 ISO]
+    C --> E[Create Bootable ISO]
+    D --> F[Custom Windows 11 ISO]
     
     style A fill:#0078D4,color:#fff
     style F fill:#107C10,color:#fff
@@ -241,12 +207,8 @@ graph LR
    - Downloads from GitHub or uses custom file
    - Places in ISO root for automatic processing
 
-3. **Advanced Tweaks**
-   - Generates batch script with registry tweaks
-   - Places in `$OEM$\$1\RaulWin11Tweaks\`
-   - Creates `SetupComplete.cmd` for auto-execution
 
-4. **ISO Creation**
+3. **ISO Creation**
    - Uses `oscdimg.exe` from Windows ADK
    - Creates dual-boot ISO (UEFI + BIOS)
    - Maintains bootability with proper boot sectors
@@ -424,29 +386,6 @@ If this tool helped you, consider:
 ![GitHub last commit](https://img.shields.io/github/last-commit/RaulCapelaru/RaulWin11IsoCustomizer)
 
 ---
-
-## 🗺️ Roadmap
-
-### v1.1 (Planned)
-- [ ] Add Windows 10 support
-- [ ] ISO checksum verification
-- [ ] Built-in driver injection
-- [ ] Auto-update checker
-- [ ] Multilanguage UI (English, Romanian, etc.)
-
-### v1.2 (Future)
-- [ ] Visual autounattend.xml editor
-- [ ] Pre-built templates library
-- [ ] Batch processing (multiple ISOs)
-- [ ] Windows Update integration
-- [ ] Cloud storage integration
-
-### v2.0 (Vision)
-- [ ] Web-based version
-- [ ] Linux/macOS support (via Wine)
-- [ ] Custom Windows builds marketplace
-- [ ] Community template sharing
-
 ---
 
 <div align="center">
@@ -457,9 +396,7 @@ If this tool helped you, consider:
 
 ---
 
-**Made with ❤️ in Romania**
-
-**© 2025 Raul Capelaru | Tutoriale cu Raul**
+**© 2026 Raul Capelaru | Tutoriale cu Raul**
 
 [⬆ Back to Top](#-raulwin11-iso-customizer)
 
