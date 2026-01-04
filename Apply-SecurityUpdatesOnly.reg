@@ -1,0 +1,17 @@
+Windows Registry Editor Version 5.00
+
+; RaulWin11 - Security Updates Only Demo
+; Double-click acest fișier pentru a aplica setările
+
+; Creează structura de foldere și setări pentru Windows Update
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
+"DeferFeatureUpdates"=dword:00000001
+"DeferFeatureUpdatesPeriodInDays"=dword:00000169
+"BranchReadinessLevel"=dword:00000020
+"ExcludeWUDriversInQualityUpdate"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
+"NoAutoUpdate"=dword:00000000
+"AUOptions"=dword:00000002
+"NoAutoRebootWithLoggedOnUsers"=dword:00000001

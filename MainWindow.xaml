@@ -228,118 +228,159 @@
                     </StackPanel>
                 </Border>
 
-                <!-- Step 5: Advanced Options (NEW) -->
+                <!-- Step 5: What's Included (Informative) -->
                 <Border Style="{StaticResource SectionPanel}">
                     <StackPanel>
-                        <TextBlock Text="🔧 STEP 5: Advanced Options (Optional)" 
+                        <TextBlock Text="ℹ️ STEP 5: What's Included in RaulWin11 Autounattend" 
                                    FontSize="18" 
                                    FontWeight="Bold" 
                                    Foreground="White"/>
-                        <TextBlock Text="Configure additional system tweaks and update policies" 
+                        <TextBlock Text="The RaulWin11 autounattend.xml file includes the following optimizations by default" 
                                    FontSize="12" 
                                    Foreground="#B0B0B0"
                                    Margin="0,5,0,15"/>
                         
-                        <!-- Bloatware Prevention -->
-                        <CheckBox x:Name="chkPreventBloatware"
-                                  Content="Prevent bloatware reinstall via Windows Update"
-                                  Foreground="White"
-                                  FontSize="13"
-                                  Margin="0,0,0,8"
-                                  IsChecked="True">
-                            <CheckBox.ToolTip>
-                                <ToolTip>
-                                    <TextBlock MaxWidth="400" TextWrapping="Wrap">
-                                        Adds registry tweaks and policies to prevent apps like Teams, OneDrive, Clipchamp from reinstalling automatically through Windows Updates.
-                                    </TextBlock>
-                                </ToolTip>
-                            </CheckBox.ToolTip>
-                        </CheckBox>
+                        <!-- Feature List -->
+                        <StackPanel Margin="0,0,0,10">
+                            <!-- Prevent Bloatware -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <TextBlock Text="✅" FontSize="14" Margin="0,0,10,0"/>
+                                <StackPanel>
+                                    <TextBlock Text="Prevent bloatware reinstall via Windows Update" 
+                                               Foreground="White" 
+                                               FontSize="13"
+                                               FontWeight="SemiBold"/>
+                                    <TextBlock Text="Blocks 15+ unwanted apps and prevents automatic reinstallation" 
+                                               Foreground="#A0A0A0" 
+                                               FontSize="11"
+                                               Margin="0,2,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
 
-                        <!-- Security Updates Only -->
-                        <CheckBox x:Name="chkSecurityUpdatesOnly"
-                                  Content="Security updates only (no feature updates)"
-                                  Foreground="White"
-                                  FontSize="13"
-                                  Margin="0,0,0,8"
-                                  IsChecked="True">
-                            <CheckBox.ToolTip>
-                                <ToolTip>
-                                    <TextBlock MaxWidth="400" TextWrapping="Wrap">
-                                        Configures Windows Update to download only security updates and critical patches. Feature updates (new Windows versions) will not be installed automatically.
-                                    </TextBlock>
-                                </ToolTip>
-                            </CheckBox.ToolTip>
-                        </CheckBox>
+                            <!-- Security Updates Only -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <TextBlock Text="✅" FontSize="14" Margin="0,0,10,0"/>
+                                <StackPanel>
+                                    <TextBlock Text="Security updates only (no feature updates)" 
+                                               Foreground="White" 
+                                               FontSize="13"
+                                               FontWeight="SemiBold"/>
+                                    <TextBlock Text="Defers feature updates for 365 days, security patches install normally" 
+                                               Foreground="#A0A0A0" 
+                                               FontSize="11"
+                                               Margin="0,2,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
 
-                        <!-- Disable Telemetry -->
-                        <CheckBox x:Name="chkDisableTelemetry"
-                                  Content="Disable Windows telemetry and data collection"
-                                  Foreground="White"
-                                  FontSize="13"
-                                  Margin="0,0,0,8"
-                                  IsChecked="True">
-                            <CheckBox.ToolTip>
-                                <ToolTip>
-                                    <TextBlock MaxWidth="400" TextWrapping="Wrap">
-                                        Disables Windows diagnostic data collection, telemetry services, and automatic feedback submissions for enhanced privacy.
-                                    </TextBlock>
-                                </ToolTip>
-                            </CheckBox.ToolTip>
-                        </CheckBox>
+                            <!-- Disable Telemetry -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <TextBlock Text="✅" FontSize="14" Margin="0,0,10,0"/>
+                                <StackPanel>
+                                    <TextBlock Text="Disable Windows telemetry and data collection" 
+                                               Foreground="White" 
+                                               FontSize="13"
+                                               FontWeight="SemiBold"/>
+                                    <TextBlock Text="Stops diagnostic data, activity tracking, and advertising ID" 
+                                               Foreground="#A0A0A0" 
+                                               FontSize="11"
+                                               Margin="0,2,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
 
-                        <!-- Disable Cortana -->
-                        <CheckBox x:Name="chkDisableCortana"
-                                  Content="Disable Cortana and web search in Start Menu"
-                                  Foreground="White"
-                                  FontSize="13"
-                                  Margin="0,0,0,8"
-                                  IsChecked="True">
-                            <CheckBox.ToolTip>
-                                <ToolTip>
-                                    <TextBlock MaxWidth="400" TextWrapping="Wrap">
-                                        Completely disables Cortana assistant and removes web search results from the Start Menu search.
-                                    </TextBlock>
-                                </ToolTip>
-                            </CheckBox.ToolTip>
-                        </CheckBox>
+                            <!-- Disable Cortana -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <TextBlock Text="✅" FontSize="14" Margin="0,0,10,0"/>
+                                <StackPanel>
+                                    <TextBlock Text="Disable Cortana and web search in Start Menu" 
+                                               Foreground="White" 
+                                               FontSize="13"
+                                               FontWeight="SemiBold"/>
+                                    <TextBlock Text="Removes Bing search and online suggestions from Start Menu" 
+                                               Foreground="#A0A0A0" 
+                                               FontSize="11"
+                                               Margin="0,2,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
 
-                        <!-- Performance Mode -->
-                        <CheckBox x:Name="chkPerformanceMode"
-                                  Content="Enable performance optimizations"
-                                  Foreground="White"
-                                  FontSize="13"
-                                  Margin="0,0,0,8"
-                                  IsChecked="True">
-                            <CheckBox.ToolTip>
-                                <ToolTip>
-                                    <TextBlock MaxWidth="400" TextWrapping="Wrap">
-                                        Applies performance tweaks: disables unnecessary services, visual effects, and background processes for better system responsiveness.
-                                    </TextBlock>
-                                </ToolTip>
-                            </CheckBox.ToolTip>
-                        </CheckBox>
+                            <!-- Performance Optimizations -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <TextBlock Text="✅" FontSize="14" Margin="0,0,10,0"/>
+                                <StackPanel>
+                                    <TextBlock Text="Enable performance optimizations" 
+                                               Foreground="White" 
+                                               FontSize="13"
+                                               FontWeight="SemiBold"/>
+                                    <TextBlock Text="Disables unnecessary services and visual effects for better responsiveness" 
+                                               Foreground="#A0A0A0" 
+                                               FontSize="11"
+                                               Margin="0,2,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
 
-                        <!-- Skip OOBE Screens (NEW) -->
-                        <CheckBox x:Name="chkSkipOOBE"
-                                  Content="Skip unnecessary setup screens (keep WiFi and account creation)"
-                                  Foreground="White"
-                                  FontSize="13"
-                                  Margin="0,0,0,15"
-                                  IsChecked="True">
-                            <CheckBox.ToolTip>
-                                <ToolTip>
-                                    <TextBlock MaxWidth="400" TextWrapping="Wrap">
-                                        Skips promotional slides, Cortana, OneDrive setup, and other unnecessary OOBE screens. You'll still be able to create a local account and configure WiFi, but the installation will be much faster.
-                                    </TextBlock>
-                                </ToolTip>
-                            </CheckBox.ToolTip>
-                        </CheckBox>
+                            <!-- Skip OOBE -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <TextBlock Text="✅" FontSize="14" Margin="0,0,10,0"/>
+                                <StackPanel>
+                                    <TextBlock Text="Skip unnecessary setup screens (keep WiFi and account creation)" 
+                                               Foreground="White" 
+                                               FontSize="13"
+                                               FontWeight="SemiBold"/>
+                                    <TextBlock Text="Skips promotional screens while keeping WiFi config and local account creation" 
+                                               Foreground="#A0A0A0" 
+                                               FontSize="11"
+                                               Margin="0,2,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
 
-                        <TextBlock Text="ℹ️ These options will be applied during Windows installation" 
-                                   FontSize="11" 
-                                   Foreground="#808080"
-                                   FontStyle="Italic"/>
+                        <!-- Important Notes -->
+                        <Border Background="#2A2A2A" 
+                                CornerRadius="5" 
+                                Padding="15"
+                                Margin="0,10,0,0">
+                            <StackPanel>
+                                <TextBlock Text="📌 Important Notes:" 
+                                           FontSize="13" 
+                                           FontWeight="Bold"
+                                           Foreground="#FFA500"
+                                           Margin="0,0,0,8"/>
+                                
+                                <TextBlock TextWrapping="Wrap" 
+                                           FontSize="12" 
+                                           Foreground="#D0D0D0"
+                                           Margin="0,0,0,5">
+                                    <Run Text="• "/>
+                                    <Run Text="Camera &amp; Microphone:" FontWeight="SemiBold"/>
+                                    <Run Text=" Not blocked - you choose when first using them"/>
+                                </TextBlock>
+
+                                <TextBlock TextWrapping="Wrap" 
+                                           FontSize="12" 
+                                           Foreground="#D0D0D0"
+                                           Margin="0,0,0,5">
+                                    <Run Text="• "/>
+                                    <Run Text="Custom autounattend.xml:" FontWeight="SemiBold"/>
+                                    <Run Text=" If you use your own file, these tweaks won't be applied unless you add them manually"/>
+                                </TextBlock>
+
+                                <TextBlock TextWrapping="Wrap" 
+                                           FontSize="12" 
+                                           Foreground="#D0D0D0"
+                                           Margin="0,0,0,5">
+                                    <Run Text="• "/>
+                                    <Run Text="All settings:" FontWeight="SemiBold"/>
+                                    <Run Text=" Can be changed after installation through Windows Settings or Group Policy"/>
+                                </TextBlock>
+
+                                <TextBlock TextWrapping="Wrap" 
+                                           FontSize="12" 
+                                           Foreground="#D0D0D0">
+                                    <Run Text="• "/>
+                                    <Run Text="Documentation:" FontWeight="SemiBold"/>
+                                    <Run Text=" See ADVANCED_OPTIONS_GUIDE.md for detailed registry paths and explanations"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
                 </Border>
 
