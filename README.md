@@ -189,8 +189,8 @@ dotnet publish -c Release -r win-x64 --self-contained true \
 graph LR
     A[Official Windows 11 ISO] --> B[Extract ISO]
     B --> C[Add autounattend.xml]
-    C --> E[Create Bootable ISO]
-    D --> F[Custom Windows 11 ISO]
+    C --> D[Create Bootable ISO]
+    D --> E[Custom Windows 11 ISO]
     
     style A fill:#0078D4,color:#fff
     style F fill:#107C10,color:#fff
