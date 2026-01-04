@@ -1,8 +1,0 @@
-Windows Registry Editor Version 5.00
-
-; RaulWin11 - Remove Security Updates Only Settings
-; Double-click acest fișier pentru a reveni la setările default
-
-; Șterge toate setările Windows Update Policy
-
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
