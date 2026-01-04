@@ -193,7 +193,6 @@ graph LR
     D --> E[Custom Windows 11 ISO]
     
     style A fill:#0078D4,color:#fff
-    style F fill:#107C10,color:#fff
 ```
 
 ### Technical Implementation
